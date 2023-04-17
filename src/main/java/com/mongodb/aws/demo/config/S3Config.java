@@ -23,7 +23,7 @@ public class S3Config {
 	@Bean
 	public AmazonS3 getS3Client()
 	{
-		System.out.println("\n\tSecretKey :: "+secretKey+"\n\taccessKey :: "+accessKey);
+		//System.out.println("\n\tSecretKey :: "+secretKey+"\n\taccessKey :: "+accessKey);
 		AWSCredentials credentials=new BasicAWSCredentials(accessKey, secretKey);
 		
 		AmazonS3ClientBuilder amazonS3ClientBuilder=AmazonS3ClientBuilder.standard()

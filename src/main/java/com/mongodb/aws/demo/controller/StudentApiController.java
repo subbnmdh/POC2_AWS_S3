@@ -25,7 +25,7 @@ import com.mongodb.aws.demo.services.StudentService;
 import com.mongodb.aws.demo.utils.FileOperationUtils;
 
 import exceptions.ResourceNotFoundException;
-
+//import com.mongodb.aws.demo.utils.FileOperationUtils;
 @CrossOrigin(origins =  "http://localhost:8089")
 @RestController
 @RequestMapping("/students")
@@ -64,7 +64,7 @@ public class StudentApiController {
 			System.out.println("uploadImageUrl: "+uploadImageUrl);
 			if(uploadImageUrl.contains(".jpg")|| uploadImageUrl.contains(".png"))
 			{
-
+				//uploadImageUrl.split(":");
 				std.setImageLink(uploadImageUrl);
 				
 				studentService.addNewStdudent(std);
@@ -78,6 +78,15 @@ public class StudentApiController {
 		}
 		
 	}
+//	@DeleteMapping("/deleteFile")
+//	public ResponseEntity<String> deleteFileHandler(@RequestParam("file") String filename)
+//	{
+//		System.out.println("\n\tdeleteFileHandler invoked");
+//		System.out.println("\n\tFilename: "+filename);
+//		String deletemsg = FileOperationUtils.deleteImage(s3Client, bucketName, filename);
+//		
+//		return ResponseEntity.status(HttpStatus.OK).body(deletemsg);
+//	}
 	
 	@PostMapping("/addnew")
 	public ResponseEntity<Student> addStudentHandler(@RequestBody Student std)
